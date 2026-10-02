@@ -1,0 +1,208 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ali Eymen Acil Kart</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap">
+<style>
+  /* Layout: tek sütun telefon kartı — üstte isim rozeti, altında veli şeritleri, en altta büyük kan grubu mührü */
+  :root{
+    --bg:#e9f2fb;
+    --paper:#ffffff;
+    --ink:#16233a;
+    --muted:#5a6a82;
+    --sky:#2b78d8;   --sky-soft:#d7e8fb;
+    --mint:#139a5b;  --mint-soft:#d3f1e1;
+    --rose:#d6336c;  --rose-soft:#fbdde7;
+    --blood:#c4142c; --blood-soft:#fde1e4;
+    --line:#cfdcec;
+    --f-display:"Baloo 2", "Arial Rounded MT Bold", system-ui, sans-serif;
+    --f-body:"Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e1626; --paper:#17223a; --ink:#eef3fb; --muted:#a3b2c9;
+      --sky:#6eaaf5; --sky-soft:#1c3253;
+      --mint:#4fd295; --mint-soft:#163a2c;
+      --rose:#f27aa3; --rose-soft:#3f1d2c;
+      --blood:#ff6b7f; --blood-soft:#43191f;
+      --line:#2a3956;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1626; --paper:#17223a; --ink:#eef3fb; --muted:#a3b2c9;
+    --sky:#6eaaf5; --sky-soft:#1c3253;
+    --mint:#4fd295; --mint-soft:#163a2c;
+    --rose:#f27aa3; --rose-soft:#3f1d2c;
+    --blood:#ff6b7f; --blood-soft:#43191f;
+    --line:#2a3956;
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--f-body); font-size:16px;
+    padding-inline:16px; padding-block:28px 40px;
+    background-image:
+      radial-gradient(circle at -10% -6%, var(--sky-soft) 0 150px, transparent 151px),
+      radial-gradient(circle at 110% 4%, var(--rose-soft) 0 110px, transparent 111px);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:440px; margin:0 auto; display:flex; flex-direction:column; gap:14px}
+
+  header{text-align:center; display:flex; flex-direction:column; align-items:center; gap:4px; margin-bottom:6px}
+  .nfc{width:52px; height:52px; color:var(--sky)}
+  .nfc path{animation:wave 2.4s ease-in-out infinite; opacity:.35}
+  .nfc path:nth-child(2){animation-delay:.25s}
+  .nfc path:nth-child(3){animation-delay:.5s}
+  @keyframes wave{0%,100%{opacity:.35}40%{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.nfc path{animation:none; opacity:1}}
+  .eyebrow{font-weight:800; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--blood)}
+  h1{font-family:var(--f-display); font-weight:800; font-size:28px; line-height:1.1; margin:0; text-wrap:balance}
+
+  .name{
+    background:var(--sky-soft); border-radius:24px; padding:20px;
+    display:flex; align-items:center; gap:16px;
+  }
+  .badge{
+    flex:0 0 64px; height:64px; border-radius:50%; background:var(--paper);
+    display:grid; place-items:center; color:var(--sky);
+  }
+  .badge svg{width:32px; height:32px}
+  .label{font-weight:800; font-size:12px; letter-spacing:.1em; text-transform:uppercase}
+  .name .label{color:var(--sky)}
+  .name .val{font-family:var(--f-display); font-weight:800; font-size:34px; line-height:1.05; margin-top:2px}
+
+  .parent{border-radius:24px; padding:18px 20px; display:flex; flex-direction:column; gap:12px}
+  .parent.dad{background:var(--mint-soft)} .parent.dad .label,.parent.dad .badge{color:var(--mint)}
+  .parent.mom{background:var(--rose-soft)} .parent.mom .label,.parent.mom .badge{color:var(--rose)}
+  .parent .top{display:flex; align-items:center; gap:14px}
+  .parent .badge{flex-basis:48px; height:48px}
+  .parent .badge svg{width:24px; height:24px}
+  .num{
+    font-family:var(--f-display); font-weight:700; font-size:27px; letter-spacing:.02em;
+    font-variant-numeric:tabular-nums; user-select:all; line-height:1.1;
+  }
+  .actions{display:flex; gap:10px; flex-wrap:wrap}
+  .btn{
+    flex:1 1 130px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    border:0; border-radius:999px; padding:12px 16px; min-height:48px;
+    font:800 16px var(--f-body); text-decoration:none; cursor:pointer;
+  }
+  .btn svg{width:18px; height:18px}
+  .dad .call{background:var(--mint); color:var(--paper)}
+  .mom .call{background:var(--rose); color:var(--paper)}
+  .copy{background:var(--paper); color:var(--ink)}
+  .btn:focus-visible{outline:3px solid var(--sky); outline-offset:2px}
+
+  .blood{
+    background:var(--blood-soft); border-radius:24px; padding:18px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .blood .label{color:var(--blood); display:flex; align-items:center; gap:8px}
+  .blood .label svg{width:22px; height:22px}
+  .blood .hint{color:var(--muted); font-size:14px; margin-top:4px}
+  .seal{
+    flex:0 0 auto; background:var(--paper); color:var(--blood);
+    border:3px solid var(--blood); border-radius:18px; padding:6px 16px;
+    font-family:var(--f-display); font-weight:800; font-size:34px; line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+
+  footer{
+    text-align:center; color:var(--muted); font-size:14px; line-height:1.5;
+    border-top:1px dashed var(--line); padding-top:14px; margin-top:4px;
+  }
+  footer strong{color:var(--ink)}
+</style>
+</head><body>
+
+<div class="wrap">
+  <header>
+    <svg class="nfc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+      <path d="M6 8.5a5 5 0 0 1 0 7"/><path d="M9.5 6a9 9 0 0 1 0 12"/><path d="M13 3.5a13 13 0 0 1 0 17"/>
+    </svg>
+    <div class="eyebrow">Acil Durum</div>
+    <h1>NFC Öğrenci Kartı</h1>
+  </header>
+
+  <section class="name">
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-7 9.2V16c0 1.7 3.1 3.5 7 3.5s7-1.8 7-3.5v-3.8L12 16l-7-3.8z"/></svg>
+    </div>
+    <div>
+      <div class="label">Öğrenci</div>
+      <div class="val">Ali Eymen</div>
+    </div>
+  </section>
+
+  <section class="parent mom">
+    <div class="top">
+      <div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c0-4.4 3.8-7 8.5-7s8.5 2.6 8.5 7z"/></svg></div>
+      <div>
+        <div class="label">Annesi</div>
+        <div class="num">0541 204 39 07</div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn call" href="tel:+905412043907">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+        Ara
+      </a>
+      <button class="btn copy" type="button" data-num="05412043907">Numarayı kopyala</button>
+    </div>
+  </section>
+
+  <section class="parent dad">
+    <div class="top">
+      <div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c0-4.4 3.8-7 8.5-7s8.5 2.6 8.5 7z"/></svg></div>
+      <div>
+        <div class="label">Babası</div>
+        <div class="num">0533 609 39 07</div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn call" href="tel:+905336093907">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+        Ara
+      </a>
+      <button class="btn copy" type="button" data-num="05336093907">Numarayı kopyala</button>
+    </div>
+  </section>
+
+  <section class="blood">
+    <div>
+      <div class="label">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5S5 10.3 5 15a7 7 0 0 0 14 0c0-4.7-7-12.5-7-12.5z"/></svg>
+        Kan Grubu
+      </div>
+      <div class="hint">Sağlık görevlisi için</div>
+    </div>
+    <div class="seal">0 Rh+</div>
+  </section>
+
+  <footer>
+    <strong>Bu çocuğu bulduysanız</strong> lütfen annesini ya da babasını arayın.
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click', function(){
+    var num = b.getAttribute('data-num');
+    var done = function(){ b.textContent = 'Kopyalandı'; setTimeout(function(){ b.textContent = 'Numarayı kopyala'; }, 1800); };
+    try{
+      navigator.clipboard.writeText(num).then(done, function(){ selectNum(b); });
+    }catch(e){ selectNum(b); }
+  });
+});
+function selectNum(b){
+  var el = b.closest('.parent').querySelector('.num');
+  var r = document.createRange(); r.selectNodeContents(el);
+  var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  b.textContent = 'Numara seçildi';
+}
+</script>
+</body></html>
